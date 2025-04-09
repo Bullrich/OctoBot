@@ -1,0 +1,14 @@
+[service]
+name = "octobot"
+
+[service.build]
+command = "pip install -r requirements.txt"
+
+[service.deploy]
+startCommand = "python start.py"
+restartPolicyType = "ON_FAILURE"
+
+[service.volumes]
+"/octobot/user" = "/mnt/volume/octobot-data/user"
+"/octobot/tentacles" = "/mnt/volume/octobot-data/tentacles"
+"/octobot/logs" = "/mnt/volume/octobot-data/logs"
